@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Array Methods:</h1>
+
+    <p id="demo"></p>
+    <p id="firstele"></p>
+    <p id="length"></p>
+    <p id="lastele"></p>
+    <p id="push"></p>
+    <p id="pop"></p>
+    <p id="shift"></p>
+    <p id="unshift"></p>
+    <p id="concate"></p>
+    <p id="splice"></p>
+    <p id="slice"></p>
+    <p id="sort"></p>
+    <p id="reverse"></p>
+    <p id="forEach"></p>
+    <p id="map"></p>
+    <p id="filter"></p>
+    <p id="reduce"></p>
+    <p id="every"></p>
+    <p id="some"></p>
+    <p id="indexOf"></p>
+    <p id="find"></p>
+    <script>
+        const cars = ["Saab", "Volvo", "BMW"];
+        document.getElementById("demo").innerHTML="<p>Array:</p>"+cars;
+        document.getElementById("firstele").innerHTML="<p>*Array first ele:</p>"+cars[0];
+        document.getElementById("lastele").innerHTML="<p>*Array last ele:</p>"+cars[cars.length-1];
+        document.getElementById("length").innerHTML="*p>Array length:</p>"+cars.length;
+        cars.push("Swift");
+        document.getElementById("push").innerHTML="<p>*push ele in Array:</p>"+cars;
+        cars.pop();
+        document.getElementById("pop").innerHTML="<p>*delete last ele in Array:</p>"+cars;
+        cars.shift();
+        document.getElementById("shift").innerHTML="<p>*delete first ele in array</p>"+cars;
+        cars.unshift("Polo");
+        document.getElementById("unshift").innerHTML="<p>*adding first ele in array</p>"+cars;
+       
+        const myGirls = ["Cecilie", "Lone"];
+        const myBoys = ["Emil", "Tobias", "Linus"];
+        const myChildren = myGirls.concat(myBoys);
+        document.getElementById("concate").innerHTML ="<p>*concate two array array :</p>"+ myChildren;
+        cars.splice(2,0,"Pajero","Inova");
+        document.getElementById("splice").innerHTML="<p>Adding two cars at  0th position in  Array:</p>"+cars;
+        cars1=cars.slice(1);
+        document.getElementById("slice").innerHTML="<p>removing two cars at  0th position in  Array:</p>"+cars1;
+        cars2=cars.sort();
+        document.getElementById("sort").innerHTML="<p>sort Array:</p>"+cars2;
+        cars3=cars.reverse();
+        document.getElementById("reverse").innerHTML="<p>reverse Array:</p>"+cars3;
+
+        const numbers = [45, 4, 9, 16, 25];
+        let txt = "";
+        numbers.forEach(myFunction);
+        document.getElementById("forEach").innerHTML = txt;
+        function myFunction(value, index, array) {
+        txt += value * 2 + "<br>"; 
+        }
+
+        const numbers1 = [453, 40, 4, 12, 20];
+        const numbers2 = numbers1.map(myFunction);
+        document.getElementById("map").innerHTML ="<p>Map iteration pass each element in array:</p>"+ numbers2;
+        function myFunction(value,index,array) {
+            return value * 4;
+        }
+
+        const numbers3 = [453, 40, 4, 12, 20];
+        const numbers4 = numbers3.filter(fn);
+        document.getElementById("filter").innerHTML="<p>filter iteration:array with array elements that pass a test.</p>"+numbers4;
+        function fn(value,index,array){
+            return value > 22;
+        }
+
+        const numbers5 = [453, 40, 4, 12, 20];
+        const numbers6  = numbers5.reduce(fn2);
+        document.getElementById("reduce").innerHTML="<p>reduce iteration:each array element to produce (reduce it to) a single value.</p>"+numbers6;
+        function fn2(total,value,index,array){
+            return  total+value;
+        }
+
+        const numbers7 = [453, 40, 4, 12, 20];
+        let allover18 = numbers7.every(fn3);
+        document.getElementById("every").innerHTML="<p>every iteration:write true or false</p>"+allover18;
+        function fn3(value){
+            return value > 18;
+        }
+
+        const numbers8 = [453, 40, 4, 12, 20];
+        let someOver18  = numbers8.some(fn4);
+        document.getElementById("some").innerHTML="<p>some iteration:write true or false</p>"+someOver18;
+        function  fn4(value,index,array){
+            return value > 18;
+        }
+
+        const frt1 = ["Apple", "Orange", "Apple", "Mango"];
+        let position=frt1.indexOf("Apple")+1;
+        document.getElementById("indexOf").innerHTML = "<p>show index:</p>"+position;
+
+        const numbers9=[4, 9, 16, 25, 29];
+        let find=numbers9.find(fn5);
+        document.getElementById("find").innerHTML = "<p>value of the first array element that passes a test function  using  find():</p>" + find;
+        function fn5(value,index,array){
+            return value > 18;
+        }
+    </script>
+</body>
+</html>
